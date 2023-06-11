@@ -33,8 +33,7 @@ const bannerTitle = document.querySelector ('#banner p')
 let numero = 0
 
  // Fonction pour mettre à jour l'image de la bannière et le titre
-function ChangeSlide(sens) {
-	
+function ChangeSlide(sens) {	
 	numero += sens
 	if (numero > slides.length - 1 )
 	numero = 0
