@@ -15,7 +15,7 @@ const slides = [
 		"image":"slide4.png",
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
-]
+];
 
 // Sélection des flèches gauche et droite
 const arrowLeft = document.querySelector('.arrow_left')
@@ -33,7 +33,8 @@ const bannerTitle = document.querySelector ('#banner p')
 let numero = 0
 
  // Fonction pour mettre à jour l'image de la bannière et le titre
-function ChangeSlide(sens) {	
+function ChangeSlide(sens) {
+	
 	numero += sens
 	if (numero > slides.length - 1 )
 	numero = 0
@@ -42,3 +43,6 @@ function ChangeSlide(sens) {
 	bannerImage.src = "./assets/images/slideshow/" + slides[numero].image
 	bannerTitle.innerHTML = slides[numero].tagLine
 }
+
+
+
