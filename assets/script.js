@@ -17,37 +17,44 @@ const slides = [
 	}
 ];
 
+
+// Sélection de l'image de la bannière et du titre
+const bannerImage = document.getElementsByClassName('banner-img');
+const bannerTagline = document.getElementsByClassName('text');
+
+// Sélection des points du slider
+const sliderDots = document.querySelectorAll('.dot');
+
+// Initialisation du compteur
+let index = 0;
+bannerImage[index].src = "./assets/images/slideshow/" + slides[index].image;
+bannerTagline[index].innerHTML = slides[index].tagLine;
+
 // Sélection des flèches gauche et droite
-const arrowLeft = document.querySelector('.arrow_left')
-const arrowRight = document.querySelector('.arrow_right')
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
 
 // Ajout des événements clic sur la flèche gauche et droite
 arrowLeft.addEventListener ('click',() => {
-	ChangeSlide(-1)
-	console.log('previous slide'); // Test du fonctionnement des event listeners
-})
+	ChangeSlide(-1);
+});
 arrowRight.addEventListener ('click',() => {
-	ChangeSlide(1)
-	console.log('next slide'); // Test du fonctionnement des event listeners
-})
+	ChangeSlide(1);
+});
 
-// Sélection de l'image de la bannière et du titre
-const bannerImage = document.querySelector('.banner-img')
-const bannerTagline = document.querySelector ('#banner p')
-
-// Initialisation du compteur
-let index = 0
-
- // Fonction pour mettre à jour l'image de la bannière et le titre
+ // Fonction pour mettre à jour l'image de la bannière, titre et points
 function ChangeSlide(sens) {	
-	index += sens
+	index += sens;
 	if (index > slides.length - 1 )
-	index = 0
+	index = 0;
 	if (index < 0)
-	index = slides.length - 1
-	bannerImage.src = "./assets/images/slideshow/" + slides[index].image
-	bannerTagline.innerHTML = slides[index].tagLine
-}
+	index = slides.length - 1;	
 
+	bannerImage[0].src = "./assets/images/slideshow/" + slides[index].image;
+	bannerTagline[0].innerHTML = slides[index].tagLine;
+
+	sliderDots.forEach(sliderDots => sliderDots.classList.remove('dot_selected'));
+	sliderDots[index].classList.add('dot_selected');	
+};
 
 
